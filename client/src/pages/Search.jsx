@@ -63,8 +63,27 @@ class SearchPage extends Component {
     this.loadBooks()
     // this.setState({ search: '' })
   }
-
   render () {
+    return (
+      <div>
+      <div className='col mx-3'>
+                    <input className='form-control form-control-borderless mr-sm-2' type='search' name='search'
+                      placeholder='Search books' id='searchInput' value={this.state.search}
+                      onChange={this.handleInputChange} />
+                  </div>
+                  <div className='col-auto'>
+                    <button className='btn btn-outline-success my-2 my-sm-0' id='searchBtn'
+                      disabled={!this.state.search} onClick={this.handleFormSubmit}>
+                    Search
+                    </button>
+                  </div>
+      <Section header='Results'>
+        <SearchResults books={this.state.books} />
+      </Section>
+      </div>
+    )
+  }
+  renderz () {
     return (
       <div className='container'>
         <Jumbotron />
