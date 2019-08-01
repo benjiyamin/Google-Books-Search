@@ -41,7 +41,13 @@ class SearchPage extends Component {
 
   loadBooks = () => {
     API.searchBooks(this.state.search)
-      .then(res => this.setState({ books: res.data.items }))
+      .then(res => {
+        this.setState({
+          books: res.data.items,
+          search: ''
+        })
+        console.log(this.state.books)
+      })
       .catch(error => console.error(error))
   }
 
@@ -55,6 +61,7 @@ class SearchPage extends Component {
   handleFormSubmit = event => {
     event.preventDefault()
     this.loadBooks()
+    // this.setState({ search: '' })
   }
 
   render () {
@@ -76,7 +83,7 @@ class SearchPage extends Component {
                   </div>
                   <div className='col-auto'>
                     <button className='btn btn-outline-success my-2 my-sm-0' id='searchBtn'
-                      disabled={!this.state.search} onClick={this.loadBooks}>
+                      disabled={!this.state.search} onClick={this.handleFormSubmit}>
                     Search
                     </button>
                   </div>

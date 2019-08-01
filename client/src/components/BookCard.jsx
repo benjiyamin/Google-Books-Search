@@ -68,7 +68,7 @@ function DeleteBtn ({ clickFunction }) {
   )
 }
 DeleteBtn.propTypes = {
-  clickFunction: PropTypes.node
+  clickFunction: PropTypes.func
 }
 
 function SaveBtn ({ clickFunction }) {
@@ -79,7 +79,7 @@ function SaveBtn ({ clickFunction }) {
   )
 }
 SaveBtn.propTypes = {
-  clickFunction: PropTypes.node
+  clickFunction: PropTypes.func
 }
 
 class BookCard extends Component {
